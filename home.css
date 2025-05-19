@@ -1,0 +1,208 @@
+body, html {
+  margin-top: 3%;
+  height: 80%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-frame {
+  width: 393px;
+  height: 852px;
+  background: linear-gradient(to top right, #0077d7, #00d8d6);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px 10px 16px;
+}
+
+.logo {
+  width: 120px;
+}
+
+.back-button {
+  width: 50px;
+  height: 50px;
+}
+
+/* Card Carousel */
+.card-carousel {
+  position: relative;
+  padding: 0 16px;
+  margin-top: 20px;
+}
+
+.device-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+}
+
+.menu-icon {
+  width: 30px; /* antes era 16px */
+}
+
+.card-content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.liters {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0077d7;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.liters .unit {
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+}
+
+.shower-icon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 75px; /* antes era 40px */
+}
+
+.duration {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.drop-icon {
+  width: 8px;
+  height: 8px;
+}
+
+/* Carousel dots */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+
+.dot.active {
+  background-color: #0077d7;
+}
+
+/* Sound Button */
+.sound-button {
+  position: absolute;
+  right: 20px;
+  bottom: -70px; /* antes era -20px */
+  background-color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 130px; /* antes era 40px */
+  border-top: 1px solid #ddd;
+  border-bottom: 2px solid #0077d7;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #0077d7;
+  border-bottom: 3px solid #0077d7;
+}
+
+/* Chart */
+.chart-container {
+  background-color: white;
+  padding: 16px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart {
+  width: 90%;
+  height: auto;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  height: 50px;
+  align-items: center;
+}
+
+.bottom-nav img {
+  width: 24px;
+  height: 24px;
+}

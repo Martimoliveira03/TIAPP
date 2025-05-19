@@ -1,0 +1,174 @@
+body, html {
+  margin-top: 3%;
+  height: 80%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-frame {
+  width: 393px;
+  height: 852px;
+  background: linear-gradient(to top right, #0077d7, #00d8d6);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px 10px 16px;
+}
+
+.perfil-header .logo {
+  width: 120px;
+}
+
+.notif-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.back-button {
+  width: 50px;
+  height: 50px;
+}
+
+.perfil-box {
+  background: white;
+  margin: 0 30px;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  margin-top: 30px; /* Subiu ainda mais a box */
+  text-align: center;
+}
+
+.perfil-box h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 4px solid #1D86C8;
+  object-fit: cover;
+  margin: 0 auto 12px;
+}
+
+.username {
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* PROGRESS SECTION */
+.progress-item {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-inner {
+  width: 65%;
+}
+
+.progress-item .label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.progress-item .label img {
+  width: 15px;
+  height: 15px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  margin: 6px 0;
+}
+
+.fill {
+  height: 100%;
+  background: #1D86C8;
+  border-radius: 10px;
+}
+
+.progress-value {
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+}
+
+.eye-icon {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.btn-relatorio {
+  background: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 7px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.btn-relatorio img {
+  width: 16px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.btn-logout {
+  background: black;
+  color: white;
+  font-weight: 700;
+  padding: 14px;
+  width: 100%;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  height: 50px;
+  align-items: center;
+}
+
+.bottom-nav img {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,110 @@
+body, html {
+  margin-top: 3%;
+  height: 80%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-frame {
+  width: 393px;
+  height: 852px;
+  background: linear-gradient(to top right, #0077d7, #00d8d6);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.comunidade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px 10px 16px;
+}
+
+.comunidade-header .logo {
+  width: 120px;
+}
+
+.notif-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.back-button {
+  width: 50px;
+  height: 50px;
+}
+
+.comunidade-box {
+  background-color: white;
+  border-radius: 20px;
+  margin: 0 30px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.comunidade-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-item img {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.user-item span {
+  flex: 1;
+  font-weight: 500;
+}
+
+.btn-view {
+  background:#1D86C8;
+  border: none;
+  padding: 6px 13px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 9px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  height: 50px; /* NOVO */
+  align-items: center; /* CENTRAR os ícones verticalmente */
+}
+
+.bottom-nav img {
+  width: 24px;  /* Antes era 28px */
+  height: 24px;
+}

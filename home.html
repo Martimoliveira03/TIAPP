@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAT'R</title>
+  <link rel="icon" href="assets/icone.png" type="image/x-icon" />
+  <link rel="stylesheet" href="home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+</head>
+<body>
+  <div class="app-frame">
+    
+    <div class="home-header">
+      <a href="home.html" class="back-button"><img src="assets/back2.svg" alt="Voltar"></a>
+      <img src="assets/logo-branco.svg" alt="WAT'R Logo" class="logo">
+      <a href="notificacoes.html" class="notif-wrapper">
+        <img src="assets/notification.svg" alt="Notificações" class="notif-icon">
+      </a>
+    </div>
+
+    <div class="card-carousel">
+      <div class="device-card">
+        <div class="card-header">
+          <span class="device-name">Chuveiro</span>
+          <a href="#"><img src="assets/dots.svg" alt="Menu" class="menu-icon"></a>
+        </div>
+        <div class="card-content">
+          <div class="liters">
+            <span class="value">371</span>
+            <span class="unit">litros</span>
+          </div>
+          <img src="assets/shower-icon.svg" alt="Ícone chuveiro" class="shower-icon">
+          <div class="duration">
+            <img src="assets/clock.svg" alt="Relógio" class="drop-icon">
+            <span>00:15:32</span>
+          </div>
+        </div>
+      </div>
+      <button class="sound-button"><img src="assets/sound-icon.svg" alt="Som"></button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active">Dia</button>
+      <button class="tab">Mês</button>
+      <button class="tab">Ano</button>
+    </div>
+
+    <div class="chart-container">
+      <img src="assets/chart-placeholder.svg" alt="Gráfico" class="chart">
+    </div>
+
+    <div class="bottom-nav">
+      <a href="comunidade.html"><img src="assets/nav-comunidade.svg" alt="Comunidade"></a>
+      <a href="home.html"><img src="assets/nav-home-active.svg" alt="Home"></a>
+      <a href="#"><img src="assets/nav-perfil.svg" alt="Perfil"></a>
+    </div>
+
+  </div>
+
+  <script>
+  const synth = new Tone.MonoSynth({
+    harmonicity: 3,
+    modulationIndex: 10,
+    oscillator: { type: 'triangle' },
+    envelope: {
+      attack: 0.3,
+      decay: 0.2,
+      sustain: 0.5,
+      release: 0.4
+    },
+    modulation: { type: 'triangle' },
+    modulationEnvelope: {
+      attack: 0.2,
+      decay: 0.2,
+      sustain: 0.3,
+      release: 0.1
+    }
+  }).toDestination();
+
+    let isPlaying = false;
+    let waterValue = 0;
+
+    document.querySelector('.sound-button').addEventListener('click', async () => {
+      await Tone.start(); 
+      if (isPlaying) {
+        synth.triggerRelease();
+      } else {
+        synth.triggerAttack("C4");
+      }
+      isPlaying = !isPlaying;
+    });
+
+    setInterval(() => {
+      if (!isPlaying) return;
+
+
+      waterValue = Math.floor(Math.random() * 100); 
+
+      const freq = Tone.Frequency(200 + waterValue * 5, "hz"); 
+      const vol = Math.min(waterValue / 100, 1);              
+
+      synth.frequency.value = freq;
+      synth.volume.value = Tone.gainToDb(vol);
+
+    }, 200);
+  </script>
+</body>
+</html>

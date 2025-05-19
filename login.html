@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAT'R</title>
+  <link rel="icon" href="assets/icone.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-frame">
+    <div class="login-screen">
+      <div class="login-box">
+        <div class="login-header">
+            <a href="registo.html" class="back-button"><img src="assets/back.svg"></a>
+          <h2>INICIA A TUA SESSÃO</h2>
+        </div>
+
+        <form class="login-form">
+          <label for="username">Nome de utilizador ou Email</label>
+          <input type="text" id="username" placeholder="Nome de utilizador ou Email" />
+
+          <label for="password">Palavra-passe</label>
+          <div class="password-field">
+            <input type="password" id="password" placeholder="Password" />
+            <div class="icon-wrapper">
+              <img id="togglePassword" src="assets/eye.svg" alt="Toggle Password">
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label><input type="checkbox" /> Lembrar-me</label>
+            <a href="#">Esqueceste-te da palavra-passe?</a>
+          </div>
+
+          <button type="submit" class="btn black">Iniciar Sessão</button>
+
+          <p class="signup-link">Não tens conta? <a href="#">Criar conta</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+  
+  let isPasswordVisible = false;
+  
+  togglePassword.addEventListener('click', () => {
+    isPasswordVisible = !isPasswordVisible;
+    passwordInput.type = isPasswordVisible ? 'text' : 'password';
+    
+    // Troca o ícone sem afetar o layout
+    togglePassword.src = isPasswordVisible ? 'assets/eye-off.svg' : 'assets/eye.svg';
+  });
+});
+  </script>
+</html>
