@@ -1,0 +1,29 @@
+[
+  {
+    "username": "afonsorodrigues",
+    "email": "afonsorodrigues@gmail.com",
+    "password": "1234",
+    "perfilPage": "perfil.html",
+    "sessions": [
+
+    ]
+  },
+  {
+    "username": "mariaabreu",
+    "email": "mariaabreu@gmail.com",
+    "password": "abcd",
+    "perfilPage": "perfil2.html",
+    "sessions": [
+
+    ]
+  },
+  {
+    "username": "martimoliveira",
+    "email": "martimoliveira@gmail.com",
+    "password": "4321",
+    "perfilPage": "perfil3.html",
+    "sessions": [
+
+    ]
+  }
+]

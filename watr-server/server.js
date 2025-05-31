@@ -12,15 +12,12 @@ const io = new Server(server);
 
 app.use(express.static('public'));
 
-const arduinoPort = 'COM7'; 
-
 const port = new SerialPort({
   path: 'COM7',
   baudRate: 115200
 });
 
 const parser = port.pipe(new ReadlineParser({ delimiter: '\n' }));
-
 
 parser.on('data', data => {
   console.log('Arduino data:', data.trim());
@@ -43,7 +40,6 @@ server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-const fs = require('fs');
 
 app.post('/data', (req, res) => {
   const { userId, volume, timestamp } = req.body;
