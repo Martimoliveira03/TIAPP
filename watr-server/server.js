@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const fs = require ('fs');
 const { Server } = require('socket.io');
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
@@ -40,4 +41,22 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+});
+
+const fs = require('fs');
+
+app.post('/data', (req, res) => {
+  const { userId, volume, timestamp } = req.body;
+
+  const users = JSON.parse(fs.readFileSync('users.json'));
+
+  const user = users.find(u => u.id === userId);
+  if (user) {
+    user.sessions.push({ volume, timestamp });
+    fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
+    console.log(`Added session for ${user.name}`);
+    res.sendStatus(200);
+  } else {
+    res.status(404).send('User not found');
+  }
 });
