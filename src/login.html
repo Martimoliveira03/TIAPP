@@ -44,9 +44,10 @@
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-  const togglePassword = document.getElementById('togglePassword');
-  const passwordInput = document.getElementById('password');
-  
+  const togglePassword = document.getElementById('togglePassword')
+  const passwordInput = document.getElementById('password')
+  const loginForm = document.querySelector('.login-form')
+  const usernameInput = document.getElementById('username')
   let isPasswordVisible = false;
   
   togglePassword.addEventListener('click', () => {
@@ -56,6 +57,39 @@
     // Troca o ícone sem afetar o layout
     togglePassword.src = isPasswordVisible ? 'assets/eye-off.svg' : 'assets/eye.svg';
   });
+
+  
+  loginForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const usernameOrEmail = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  fetch('../watr-server/users.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao carregar ficheiro de utilizadores');
+      }
+      return response.json();
+    })
+    .then(users => {
+      const user = users.find(u =>
+        (u.username === usernameOrEmail || u.email === usernameOrEmail) &&
+        u.password === password
+      );
+
+      if (user) {
+        // Redirecionar para a página definida no JSON
+        window.location.href = user.perfilPage;
+      } else {
+        alert('Credenciais inválidas. Tenta novamente.');
+      }
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+      alert('Ocorreu um erro ao tentar iniciar sessão.');
+    });
+});
 });
   </script>
 </html>
