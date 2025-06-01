@@ -30,19 +30,19 @@
     "perfilPage": "perfil2.html",
     "sessions": [
       {
-        "volume": 3.71,
+        "volume": 34.71,
         "timestamp": 40745
       },
       {
-        "volume": 8.69,
+        "volume": 48.69,
         "timestamp": 86791
       },
       {
-        "volume": 9.46,
+        "volume": 79.46,
         "timestamp": 101806
       },
       {
-        "volume": 9.04,
+        "volume": 49.04,
         "timestamp": 136841
       }
     ]
@@ -54,7 +54,7 @@
     "perfilPage": "perfil3.html",
     "sessions": [
       {
-        "volume": 4.22,
+        "volume": 34.22,
         "timestamp": 19725
       },
       {
