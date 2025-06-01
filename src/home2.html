@@ -31,13 +31,13 @@
         </div>
         <div class="card-content">
           <div class="liters">
-            <span class="value">371</span>
+            <span class="value"></span>
             <span class="unit">litros</span>
           </div>
           <img src="assets/shower-icon.svg" alt="Ícone chuveiro" class="shower-icon">
           <div class="duration">
             <img src="assets/clock.svg" alt="Relógio" class="drop-icon">
-            <span>00:15:32</span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -45,9 +45,9 @@
     </div>
 
     <div class="tabs">
-      <button class="tab active">Dia</button>
-      <button class="tab">Mês</button>
-      <button class="tab">Ano</button>
+      <button class="tab active">Consumo de Água</button>
+      <!--<button class="tab">Mês</button>
+      <button class="tab">Ano</button>-->
     </div>
 
     <div class="chart-container">
@@ -116,6 +116,10 @@
         const response = await fetch(`/sessions/${username}`);
         if (!response.ok) throw new Error("User not found");
         const data = await response.json();
+        const latestSession = data[data.length - 1]; // the most recent one
+        const latestVolume = latestSession.volume;
+        const latestTimestamp = latestSession.timestamp;
+
 
         function formatMinutes(ms) {
           const totalSeconds = Math.floor(ms / 1000);
@@ -125,38 +129,63 @@
         }
 
         const timestamps = data.map(d => formatMinutes(d.timestamp));
-
-
         const volumes = data.map(d => d.volume);
+
+        const avg = volumes.reduce((sum, v) => sum + v, 0) / volumes.length;
+        const avgLine = new Array(volumes.length).fill(avg);
+
 
         const ctx = document.getElementById('consumptionChart').getContext('2d');
         new Chart(ctx, {
           type: 'line',
           data: {
             labels: timestamps,
-            datasets: [{
-              label: 'Consumo de Água',
-              data: volumes,
-              borderColor: 'rgba(75, 192, 192, 1)',
-              backgroundColor: 'rgba(75, 192, 192, 0.2)',
-              tension: 0.3
-            }]
+            datasets: [
+              {
+                label: 'Consumo de Água (litros)',
+                data: volumes,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                tension: 0.3
+              },
+              {
+                label: 'Média',
+                data: avgLine,
+                borderColor: 'rgba(255, 99, 132, 0.8)',
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
+                tension: 0
+              }
+            ]
           },
           options: {
+            plugins: {
+              legend: {
+                labels: {
+                  usePointStyle: true
+                }
+              }
+            },
             scales: {
-              x: { title: { display: true, text: 'Tempo (min)' } },
-              y: { title: { display: true, text: 'Litros' } }
+              x: {
+                title: { display: true, text: 'Tempo (min)' }
+              },
+              y: {
+                title: { display: true, text: 'Litros' }
+              }
             }
           }
         });
+
+        document.querySelector('.liters .value').textContent = latestVolume.toFixed(2);
+        document.querySelector('.duration span').textContent = formatMinutes(latestTimestamp);
+
       } catch (err) {
         console.error("Erro ao carregar gráfico:", err);
       }
     }
-
-    // Replace this with actual logic to get the username
     fetchAndRenderChart('mariaabreu');
-
 
   </script>
 </body>

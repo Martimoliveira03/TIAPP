@@ -1,16 +1,19 @@
 const express = require('express');
+const path = require('path');
 const http = require('http');
 const fs = require ('fs');
 const { Server } = require('socket.io');
 const { SerialPort } = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
-
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 app.use(express.json());
 app.use(express.static('public'));
+app.use(cors());
+app.use(express.static(path.join(__dirname, '../src')));
 
 const port = new SerialPort({
   path: 'COM7',
@@ -58,7 +61,15 @@ app.post('/data', (req, res) => {
   }
 });
 
-app.get('/ping', (req, res) => {
-  console.log("Received ping from ESP32");
-  res.send("pong");
+app.get('/sessions/:username', (req, res) => {
+  console.log(`GET /sessions/${req.params.username}`);
+  const { username } = req.params;
+  const users = JSON.parse(fs.readFileSync('users.json'));
+  const user = users.find(u => u.username === username);
+
+  if (user) {
+    res.json(user.sessions);
+  } else {
+    res.status(404).send('User not found');
+  }
 });
