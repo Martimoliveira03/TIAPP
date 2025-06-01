@@ -9,7 +9,7 @@ const { ReadlineParser } = require('@serialport/parser-readline');
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-
+app.use(express.json());
 app.use(express.static('public'));
 
 const port = new SerialPort({
@@ -43,16 +43,22 @@ server.listen(PORT, () => {
 
 app.post('/data', (req, res) => {
   const { userId, volume, timestamp } = req.body;
+  console.log("Incoming data:", req.body);
 
   const users = JSON.parse(fs.readFileSync('users.json'));
+  const user = users.find(u => u.username === userId);
 
-  const user = users.find(u => u.id === userId);
   if (user) {
     user.sessions.push({ volume, timestamp });
     fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
-    console.log(`Added session for ${user.name}`);
+    console.log(`Added session for ${user.username}`);
     res.sendStatus(200);
   } else {
     res.status(404).send('User not found');
   }
+});
+
+app.get('/ping', (req, res) => {
+  console.log("Received ping from ESP32");
+  res.send("pong");
 });
