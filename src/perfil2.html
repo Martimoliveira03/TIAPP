@@ -55,10 +55,23 @@
     </div>
 
     <div class="bottom-nav">
-      <a href="comunidade.html"><img src="assets/nav-comunidade.svg" alt="Comunidade"></a>
-      <a href="home.html"><img src="assets/nav-home.svg" alt="Home"></a>
+      <a href="comunidade2.html"><img src="assets/nav-comunidade.svg" alt="Comunidade"></a>
+      <a href="home2.html"><img src="assets/nav-home.svg" alt="Home"></a>
       <a href="perfil2.html"><img src="assets/nav-perfil-active.svg" alt="Perfil"></a>
     </div>
   </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const logoutButton = document.querySelector(".btn-logout");
+
+    logoutButton.addEventListener("click", function () {
+      // Limpar dados de sessão/localStorage (se estiveres a usar)
+      // localStorage.clear(); // Descomenta se estiveres a usar localStorage
+
+      // Redirecionar para index.html
+      window.location.href = "index.html";
+    });
+  });
+</script>
 </body>
 </html>
