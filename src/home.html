@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="home.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+  <script type="text/javascript" src="chart.js"></script>
+  
 </head>
 <body>
   <div class="app-frame">
@@ -47,8 +49,8 @@
       <button class="tab">Ano</button>
     </div>
 
-    <div class="chart-container">
-      <img src="assets/chart-placeholder.svg" alt="Gráfico" class="chart">
+    <div class="chart-container"> 
+      <canvas id="userChart"></canvas>
     </div>
 
     <div class="bottom-nav">
@@ -105,6 +107,7 @@
       synth.volume.value = Tone.gainToDb(vol);
 
     }, 200);
+    
   </script>
 </body>
 </html>

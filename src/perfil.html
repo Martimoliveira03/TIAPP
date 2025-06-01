@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="perfil.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="app-frame">
     <div class="perfil-header">
@@ -20,7 +22,7 @@
       <h2>ÁREA PESSOAL</h2>
       <img src="assets/foto-perfil.svg" alt="Foto de perfil" class="profile-pic">
       <p class="username">Afonso Antunes Rodrigues</p>
-<br><br>
+      <br><br>
       <div class="progress-item">
         <div class="progress-inner">
           <div class="label">
@@ -38,7 +40,8 @@
         <div class="progress-inner">
           <div class="label">
             <img src="assets/objetivo-icon.svg" alt="Objetivo do mês">
-            <span>Objetivo do mês</span><a href="#"><img src="assets/eye-icon.svg" alt="Ver conquistas" class="eye-icon"></a>
+            <span>Objetivo do mês</span><a href="#"><img src="assets/eye-icon.svg" alt="Ver conquistas"
+                class="eye-icon"></a>
           </div>
           <div class="progress-bar">
             <div class="fill" style="width: 23%;"></div>
@@ -61,17 +64,19 @@
     </div>
   </div>
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const logoutButton = document.querySelector(".btn-logout");
+    document.addEventListener("DOMContentLoaded", function () {
+      const logoutButton = document.querySelector(".btn-logout");
 
-    logoutButton.addEventListener("click", function () {
-      // Limpar dados de sessão/localStorage (se estiveres a usar)
-      // localStorage.clear(); // Descomenta se estiveres a usar localStorage
+      logoutButton.addEventListener("click", function () {
+        // Limpar dados de sessão/localStorage (se estiveres a usar)
+        // localStorage.clear(); // Descomenta se estiveres a usar localStorage
 
-      // Redirecionar para index.html
-      window.location.href = "index.html";
+        // Redirecionar para index.html
+        window.location.href = "index.html";
+      });
     });
-  });
-</script>
+
+  </script>
 </body>
+
 </html>
