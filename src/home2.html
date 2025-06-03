@@ -84,8 +84,6 @@
     }).toDestination();
 
     let isPlaying = false;
-    let waterValue = 0;
-
     document.querySelector('.sound-button').addEventListener('click', async () => {
       await Tone.start();
       if (isPlaying) {
@@ -96,19 +94,6 @@
       isPlaying = !isPlaying;
     });
 
-    setInterval(() => {
-      if (!isPlaying) return;
-
-
-      waterValue = Math.floor(Math.random() * 100);
-
-      const freq = Tone.Frequency(200 + waterValue * 5, "hz");
-      const vol = Math.min(waterValue / 100, 1);
-
-      synth.frequency.value = freq;
-      synth.volume.value = Tone.gainToDb(vol);
-
-    }, 200);
 
 
     async function fetchAndRenderChart(username) {
@@ -180,6 +165,22 @@
 
         document.querySelector('.liters .value').textContent = latestVolume.toFixed(2);
         document.querySelector('.duration span').textContent = formatMinutes(latestTimestamp);
+        let sessionIndex = 0;
+
+        setInterval(() => {
+          if (!isPlaying || data.length === 0) return;
+
+          const waterValue = data[sessionIndex % data.length].volume;
+
+          const freq = Tone.Frequency(220 + waterValue * 10, "hz");
+          const vol = Tone.gainToDb(Math.min(waterValue / 100, 1));
+
+          synth.frequency.value = freq;
+          synth.volume.value = vol;
+
+          sessionIndex++;
+        }, 600);
+
 
       } catch (err) {
         console.error("Erro ao carregar gráfico:", err);
