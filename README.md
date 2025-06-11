@@ -1,37 +1,37 @@
-# TIAPP – Sustainable Water Monitoring System
+# WAT'R – Sistema Sustentável de Monitoramento de Água
 
-This repository contains the source files, documentation, and diagrams related to the **TIAPP project**, developed during the Interface Technologies course. The project aims to encourage more conscious water use habits by providing real-time feedback and long-term consumption insights through a low-cost smart shower monitoring system.
-
----
-
-## 📌 Project Description
-
-TIAPP combines hardware and software components to track water consumption during showers and provide immediate and reflective feedback to users. The system uses an **ESP32 microcontroller** to monitor flow data in real time and sends it to a **Node.js server**, where data is stored and later displayed in a simple application interface.  
-
-The system supports:
-- Real-time feedback (LCD, LED, buzzer)
-- Dual interaction mode (progressive/regressive counter)
-- Data transmission via Wi-Fi
-- Server-side data storage in JSON
-- Visualization of water usage history via line graphs
-
-The goal is to **raise awareness** and support **behavioral change** through interaction design, embedded feedback, and data visualization.
+Este repositório contém os arquivos-fonte, diagramas e documentação relacionados ao projeto **WAT'R**, desenvolvido no âmbito da disciplina de Tecnologias de Interface. O objetivo do projeto é incentivar hábitos mais conscientes de uso da água, oferecendo feedback em tempo real e insights sobre o consumo a longo prazo, por meio de um sistema de monitoramento inteligente e de baixo custo.
 
 ---
 
-## 📁 Repository Structure
+## 📌 Descrição do Projeto
+
+O WAT'R combina componentes de hardware e software para monitorar o consumo de água durante o banho, oferecendo ao usuário um retorno imediato (via som, luz e display) e também um histórico visual de uso. O sistema utiliza um **microcontrolador ESP32** para captar os dados de vazão em tempo real e os envia para um **servidor Node.js**, onde são armazenados em formato JSON e posteriormente exibidos em uma interface simples.
+
+O sistema oferece:
+- Feedback em tempo real (LCD, LED e buzzer)
+- Modo de contagem dupla (progressiva ou regressiva)
+- Transmissão de dados via Wi-Fi
+- Armazenamento em servidor utilizando arquivos JSON
+- Visualização do histórico de consumo em **gráficos de linha**
+
+O objetivo é **promover consciência** e apoiar a **mudança de comportamento** por meio de design de interação, feedback embarcado e visualização de dados.
+
+---
+
+## 📁 Estrutura do Repositório
 
 ```bash
-TIAPP/
-├── docs/                 # Final report and intermediate versions   
+WATR/
+├── docs/                 # Relatório final e versões intermediárias
 │
-├── res/                  # Visual resources used in the report
+├── res/                  # Recursos visuais utilizados no relatório
 │
-├── src/                  # Source code (ESP32 frontend)
-│   ├── esp32/            # Arduino code for ESP32
-│   └── assets/           # icons and images for frontend
-|
-├── watr-server/                 # JSON data examples and node modules
+├── src/                  # Código-fonte (firmware ESP32 e frontend)
+│   ├── esp32/            # Código Arduino adaptado para ESP32
+│   └── assets/           # Ícones e imagens da aplicação
+│
+├── watr-server/          # Código do servidor Node.js e base de dados JSON
 ├── .gitignore
 ├── LICENSE
 ├── README.md
